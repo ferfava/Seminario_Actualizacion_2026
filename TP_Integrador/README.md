@@ -43,14 +43,14 @@ Este mensaje trata sobre {}.
 
 | Modelo | Método | Aciertos | Total | Accuracy | Tiempo promedio (s) |
 |---|---|---:|---:|---:|---:|
-| MiniLM | pipeline | 4 | 8 | 50 % | 0,033 |
-| MiniLM | InferenceClient | 4 | 8 | 50 % | 0,908 |
-| mDeBERTa | pipeline | 7 | 8 | 87,5 % | 2,067 |
-| mDeBERTa | InferenceClient | 7 | 8 | 87,5 % | 1,021 |
+| MiniLM | pipeline | 4 | 8 | 50 % | 0,038 |
+| MiniLM | InferenceClient | 4 | 8 | 50 % | 0,900 |
+| mDeBERTa | pipeline | 7 | 8 | 87,5 % | 2,308 |
+| mDeBERTa | InferenceClient | 7 | 8 | 87,5 % | 1,379 |
 
 Los resultados muestran que, en este conjunto de prueba, **la elección del modelo tuvo mayor impacto sobre la calidad de clasificación que el método utilizado para ejecutar la inferencia**.
 
-Los tiempos corresponden a estas ejecuciones concretas y pueden variar por hardware, latencia de red o inicialización del servicio.
+Los tiempos corresponden a la última ejecución documentada en el notebook (12/10/2026) y pueden variar por hardware, latencia de red o inicialización del servicio. En `pipeline` el cronómetro de cada predicción no incluye la carga inicial de los pesos. Los tiempos remotos de `InferenceClient` incluyen la comunicación con el proveedor y no deben interpretarse como un benchmark controlado de ambos entornos.
 
 ## Modelo seleccionado
 
@@ -236,6 +236,10 @@ Para evitar la exposición de credenciales:
 - el token no debe almacenarse en el README ni en el notebook;
 - la aplicación utiliza la variable de entorno `HF_TOKEN`;
 - el entorno virtual `.venv` no debe subirse al repositorio.
+
+## Incidencia detectada durante la validación
+
+El 12/10/2026, una nueva prueba de la API devolvió `402 Payment Required` por una restricción de facturación/créditos del servicio de inferencia. El error también se observó en los logs de Render al intentar clasificar un mensaje. Esto no modifica los resultados históricos del notebook, pero evidencia que la disponibilidad pública de la app depende del proveedor externo y del saldo o la cuota de la cuenta. Antes de la defensa se debe comprobar nuevamente la respuesta de la app publicada.
 
 ## Limitaciones
 
