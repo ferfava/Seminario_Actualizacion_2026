@@ -13,6 +13,7 @@ Portfolio de actividades de la materia **Seminario de Actualización** del IFTS 
 | [5](clase-05/) | Publicación y documentación | App de Gradio desplegada en Render y versión equivalente publicada en Streamlit Community Cloud |
 | [6](clase-06/) | Revisión de pares | Evaluación en modo solo lectura de un repositorio compañero, con problema concreto y sugerencia de mejora |
 | [7](Clase_07/) | Hugging Face: `pipeline` vs. `InferenceClient` | Comparación de ejecución local y remota con cuatro apps en Gradio y Streamlit |
+| [10](clase_10/) | Entrenamiento y exportación de modelos | Comparación de scikit-learn, PyTorch y Keras. Investigación de skops y auditoría interactiva con Skops Model Inspector 2.0 |
 
 ## Aplicaciones publicadas
 
