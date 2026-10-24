@@ -20,3 +20,7 @@ Thumbs.db
 
 # Archivos generados
 .ipynb_checkpoints/
+
+# Exportaciones auxiliares de la clase 10
+clase_10/modelos_exportados/*
+!clase_10/modelos_exportados/casas.skops
