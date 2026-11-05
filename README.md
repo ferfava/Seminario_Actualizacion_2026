@@ -15,6 +15,7 @@ Portfolio de actividades de la materia **Seminario de Actualización** del IFTS 
 | [7](Clase_07/) | Hugging Face: `pipeline` vs. `InferenceClient` | Comparación de ejecución local y remota con cuatro apps en Gradio y Streamlit |
 | [10](clase_10/) | Entrenamiento y exportación de modelos | Comparación de scikit-learn, PyTorch y Keras. Investigación de skops y auditoría interactiva con Skops Model Inspector 2.0 |
 | [11](clase-11/) | Publicación de modelos en Hugging Face | Cuatro modelos publicados, Model Cards verificadas y [cuestionario resuelto](clase-11/CUESTIONARIO.md) |
+| [TP integrador](TP_Integrador/) | Clasificación de mensajes de clientes | Comparación de modelos multilingües zero-shot, notebook de evaluación y aplicación Gradio |
 
 ## Aplicaciones publicadas
 
@@ -23,13 +24,15 @@ Portfolio de actividades de la materia **Seminario de Actualización** del IFTS 
 
 ## Cómo explorar el repositorio
 
-Abrí la carpeta de cada clase y leé su README antes de ejecutar el código. Instalá las dependencias indicadas en el entorno virtual de esa clase. No subas entornos virtuales, claves ni archivos generados a GitHub.
+Abrí la carpeta de cada clase y leé su README antes de ejecutar el código. Instalá las dependencias indicadas en el entorno virtual de esa clase. No subas entornos virtuales, credenciales ni archivos temporales. Conservá los artefactos exportados que sean necesarios para reproducir o documentar cada actividad.
 
 **Estado de la clase 5:** completada. Las dos aplicaciones fueron desplegadas y verificadas; los enlaces y la comparación entre ambas implementaciones están documentados en `clase-05/README.md`.
 
 **Estado de la clase 6:** completada. La revisión de pares y el problema concreto identificado están documentados en `clase-06/README.md`.
 
 **Estado de la clase 7:** completada. Se desarrollaron y probaron cuatro aplicaciones con el mismo modelo de Hugging Face para comparar `pipeline` e `InferenceClient` usando Gradio y Streamlit. La documentación, dependencias y pasos de ejecución están en `Clase_07/README.md`.
+
+**Estado de la clase 10:** documentada. El notebook de entrenamiento, la comparación de modelos, los artefactos exportados y la investigación de skops están disponibles en [`clase_10/README.md`](clase_10/README.md).
 
 **Estado de la clase 11:** completada. Los cuatro modelos están publicados en Hugging Face; la documentación, los enlaces y las nueve respuestas se encuentran en [`clase-11/README.md`](clase-11/README.md) y [`clase-11/CUESTIONARIO.md`](clase-11/CUESTIONARIO.md).
 
