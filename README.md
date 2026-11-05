@@ -14,7 +14,7 @@ Portfolio de actividades de la materia **Seminario de Actualización** del IFTS 
 | [6](clase-06/) | Revisión de pares | Evaluación en modo solo lectura de un repositorio compañero, con problema concreto y sugerencia de mejora |
 | [7](Clase_07/) | Hugging Face: `pipeline` vs. `InferenceClient` | Comparación de ejecución local y remota con cuatro apps en Gradio y Streamlit |
 | [10](clase_10/) | Entrenamiento y exportación de modelos | Comparación de scikit-learn, PyTorch y Keras. Investigación de skops y auditoría interactiva con Skops Model Inspector 2.0 |
-| [TP: publicación de modelos](clase-11/) | Hugging Face Models | Cuatro repositorios publicados, verificación de Model Cards y cuestionario de nueve preguntas |
+| [11](clase-11/) | Publicación de modelos en Hugging Face | Cuatro modelos publicados, Model Cards verificadas y [cuestionario resuelto](clase-11/CUESTIONARIO.md) |
 
 ## Aplicaciones publicadas
 
@@ -30,5 +30,7 @@ Abrí la carpeta de cada clase y leé su README antes de ejecutar el código. In
 **Estado de la clase 6:** completada. La revisión de pares y el problema concreto identificado están documentados en `clase-06/README.md`.
 
 **Estado de la clase 7:** completada. Se desarrollaron y probaron cuatro aplicaciones con el mismo modelo de Hugging Face para comparar `pipeline` e `InferenceClient` usando Gradio y Streamlit. La documentación, dependencias y pasos de ejecución están en `Clase_07/README.md`.
+
+**Estado de la clase 11:** completada. Los cuatro modelos están publicados en Hugging Face; la documentación, los enlaces y las nueve respuestas se encuentran en [`clase-11/README.md`](clase-11/README.md) y [`clase-11/CUESTIONARIO.md`](clase-11/CUESTIONARIO.md).
 
 **Autora:** Fernanda Fava
