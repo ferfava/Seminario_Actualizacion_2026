@@ -18,7 +18,7 @@ async def lifespan(app: FastAPI):
     state.clear()
 
 app = FastAPI(title="Retail Conversion Intelligence API", version="1.0.0", lifespan=lifespan)
-origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:5500,http://127.0.0.1:5500,http://localhost:8000").split(",")
+origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:5500,http://127.0.0.1:5500,http://localhost:8000,https://ferfava.github.io").split(",")
 app.add_middleware(CORSMiddleware, allow_origins=[x.strip() for x in origins], allow_methods=["GET", "POST"], allow_headers=["Content-Type"])
 
 class Sesion(BaseModel):
