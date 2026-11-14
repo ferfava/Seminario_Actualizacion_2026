@@ -1,0 +1,37 @@
+name: Publicar TP Final en GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "TP_Final/app/frontend/**"
+      - ".github/workflows/deploy-tp-final-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages-tp-final
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Preparar frontend
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: TP_Final/app/frontend
+      - name: Publicar sitio
+        id: deployment
+        uses: actions/deploy-pages@v4
