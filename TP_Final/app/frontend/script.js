@@ -4,7 +4,7 @@ const form = $('predict-form');
 $('products').addEventListener('input', e => { $('products-output').textContent = e.target.value; });
 const apiBase = () => $('api-url').value.trim().replace(/\/+$/, '');
 function setConnection(ok, message) {
-  $('api-status').textContent = ok ? 'Online' : 'No disponible';
+  $('api-status').textContent = ok ? 'Conectada' : 'No disponible';
   $('status-note').textContent = ok ? 'API lista para recibir consultas' : 'Verificá URL, servidor y CORS';
   $('connection-label').textContent = message;
   $('connection-dot').className = ok ? 'ok' : 'fail';
@@ -34,7 +34,7 @@ form.addEventListener('submit', async event => {
     Month: f.get('Month'),
     Weekend: f.has('Weekend')
   };
-  const btn = $('predict-btn'); btn.disabled = true; btn.firstChild.textContent = 'ANALIZANDO SESIÓN… ';
+  const btn = $('predict-btn'); btn.disabled = true; btn.firstChild.textContent = 'CALCULANDO PREDICCIÓN… ';
   try {
     const r = await fetch(`${apiBase()}/predecir`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload),signal:AbortSignal.timeout(75000)});
     const data = await r.json().catch(() => ({}));
@@ -49,3 +49,57 @@ form.addEventListener('submit', async event => {
   finally {btn.disabled = false;btn.firstChild.textContent = 'GENERAR PREDICCIÓN ';}
 });
 checkApi();
+
+/* Navegación accesible: menú lateral, sección activa y enlaces internos. */
+const sidebar = $('sidebar');
+const menuToggle = $('menu-toggle');
+const navLinks = [...document.querySelectorAll('.sidebar .nav[href^="#"]')];
+const pageSections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const nameFor = a => a.textContent.trim();
+function closeMenu() {
+  sidebar.classList.remove('open');
+  document.body.classList.remove('menu-open');
+  menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+}
+function setActiveSection(id) {
+  navLinks.forEach(link => {
+    const active = link.getAttribute('href') === '#' + id;
+    link.classList.toggle('active', active);
+    if (active) {
+      link.setAttribute('aria-current', 'page');
+      $('section-label').textContent = nameFor(link);
+    } else link.removeAttribute('aria-current');
+  });
+}
+menuToggle.addEventListener('click', () => {
+  const open = sidebar.classList.toggle('open');
+  document.body.classList.toggle('menu-open', open);
+  menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+});
+navLinks.forEach(link => link.addEventListener('click', () => {
+  const id = link.getAttribute('href').slice(1);
+  setActiveSection(id);
+  closeMenu();
+}));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeMenu();
+});
+document.addEventListener('click', event => {
+  if (document.body.classList.contains('menu-open') &&
+      !sidebar.contains(event.target) && !menuToggle.contains(event.target)) closeMenu();
+});
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 760) closeMenu();
+});
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries.filter(e => e.isIntersecting)
+      .sort((a,b) => b.intersectionRatio - a.intersectionRatio);
+    if (visible[0]) setActiveSection(visible[0].target.id);
+  }, { rootMargin: '-15% 0px -65% 0px', threshold: [0, 0.1, 0.3] });
+  pageSections.forEach(section => observer.observe(section));
+}
+const initialSection = window.location.hash.slice(1);
+if (pageSections.some(s => s.id === initialSection)) setActiveSection(initialSection);
