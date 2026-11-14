@@ -1,0 +1,9 @@
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+.env
+*.pyc
+.DS_Store
+
+# El dataset se puede descargar desde UCI
+data/*.csv
