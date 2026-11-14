@@ -4,7 +4,7 @@
 
 Proyecto académico para estimar la probabilidad de compra de una sesión de comercio electrónico, mediante un modelo propio de clasificación entrenado con scikit-learn, servido a través de FastAPI y consumido desde HTML, CSS y JavaScript.
 
-**Estado verificado:** entrenamiento y evaluación realizados; API y frontend probados juntos **en local**. Despliegue público y documentación de entrega **pendientes**. No se informan URLs públicas hasta verificar su funcionamiento.
+**Estado verificado al 14/11/2026:** modelo y notebook versionados; API publicada en Render con respuestas GET /health y POST /predecir HTTP 200; validación HTTP 422 comprobada localmente; frontend publicado en GitHub Pages, conexión y predicción pública comprobadas. Informe y presentación de entrega en preparación.
 
 ## Datos y modelo
 
@@ -14,7 +14,7 @@ Proyecto académico para estimar la probabilidad de compra de una sesión de com
 - División estratificada 80/20 y comparación de cuatro configuraciones mediante validación cruzada sobre entrenamiento.
 - Modelo seleccionado: Random Forest con `min_samples_leaf=5`.
 - Métricas del test: F1 = **0,3919**; precision = **0,3425**; recall = **0,4581**; ROC-AUC = **0,7731**.
-- Exportación local: `app/modelo/modelo.joblib`, aproximadamente **12,546 MB**, con **scikit-learn 1.9.1**. **Verificar que el binario esté versionado antes de desplegar.**
+- Exportación local: `app/modelo/modelo.joblib`, aproximadamente **12,546 MB**, con **scikit-learn 1.9.1**. El binario está versionado en GitHub y cargó correctamente en Render.
 
 Las cifras son métricas académicas y no garantizan rendimiento en producción.
 
@@ -65,7 +65,7 @@ Navegador: `http://127.0.0.1:5500`. API: `http://127.0.0.1:8000/health` y `http:
 - Frontend: GitHub Pages, publicando el contenido de `app/frontend/` mediante una configuración o workflow de Pages.
 - Configurar `ALLOWED_ORIGINS` con el origen exacto del frontend público y establecer la URL HTTPS de la API en el frontend.
 
-**No hay despliegue público confirmado todavía.**
+**Enlaces públicos comprobados:** frontend https://ferfava.github.io/Seminario_Actualizacion_2026/ ; API https://retail-conversion-api.onrender.com/docs ; salud https://retail-conversion-api.onrender.com/health .
 
 ## Seguridad, límites y documentación
 
@@ -75,4 +75,4 @@ La decisión de eliminar filas idénticas tiene una limitación: sin identificad
 
 Se utilizó IA generativa como asistencia para organizar el notebook, revisar código y desarrollar la interfaz; las métricas se obtuvieron mediante ejecución del entrenamiento.
 
-**Pendiente para la entrega:** despliegue y enlaces públicos, evidencia de pruebas (incluidos errores reales), informe PDF, presentación y defensa.
+**Pendiente para la entrega:** informe PDF final con dos errores reales y sus mensajes completos, presentación y defensa.
