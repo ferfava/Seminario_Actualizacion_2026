@@ -59,3 +59,9 @@ body.menu-open:after{content:'';position:fixed;inset:0;background:#030713b8;z-in
 }
 @media(max-width:490px){.metric-grid,.method-grid{grid-template-columns:1fr}.confusion{grid-template-columns:75px 1fr 1fr;gap:4px}.axis-title{font-size:9px;padding:4px}.confusion-cell{padding:11px 3px}.confusion-cell strong{font-size:21px}.api-input{flex-wrap:wrap}.api-input input{min-width:0;flex:1 1 100%}.api-input button{width:100%}.panel-top{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){.orbit,.orb-core,.reveal,.meter i{animation:none!important}.sidebar,.nav,.stat,.metric,.method{transition:none!important}}
+
+/* La conexión API ahora es una sección independiente del simulador. */
+.api-panel-wide{width:100%;max-width:980px;margin:0 auto;padding:30px 34px}
+.api-panel-wide .api-input{max-width:850px}
+.api-panel-wide .api-input input{min-width:0;flex:1}
+@media(max-width:760px){.api-panel-wide{padding:22px}.api-panel-wide .api-input{max-width:none}}
